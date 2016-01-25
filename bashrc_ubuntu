@@ -17,6 +17,15 @@ fortune
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# enable bash completion in interactive shells
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
 export PS4='[--- Zeile: $LINENO ---] '
 export EDITOR=nano visudo
 export PULSE_LATENCY_MSEC=60
@@ -29,7 +38,7 @@ alias grep='grep --color=auto'
 
 alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
 alias install='sudo apt-get install'
-alias search='sudo apt-cache search'
+alias search='apt-cache search'
 alias remove='sudo apt-get remove'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
