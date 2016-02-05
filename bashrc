@@ -59,5 +59,27 @@ alias stopx='xfce4-session-logout --logout'
 alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
 
 # Functions
-find-name(){ find / -name $1 2>/dev/null; }
-compile-latex(){ pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; }
+find-name()
+{ 
+	find / -name $1 2>/dev/null; 
+}
+
+compile-latex()
+{ 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ;  
+	rm ${1/%.tex/.aux};
+	rm ${1/%.tex/.log};
+	rm ${1/%.tex/.out};
+	rm ${1/%.tex/.synctex.gz};
+}
+
+compile-latex-three()
+{ 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	rm ${1/%.tex/.aux};
+	rm ${1/%.tex/.log};
+	rm ${1/%.tex/.out};
+	rm ${1/%.tex/.synctex.gz};
+}
