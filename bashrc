@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Export variables
+export EDITOR=nano visudo
+export PULSE_LATENCY_MSEC=60
+export PATH=$PATH:/home/michi/.gem/ruby/2.3.0/bin
+
 # Adapt to Window Size
 shopt -s checkwinsize
 
@@ -19,10 +24,6 @@ acpi -V | grep Battery | grep Discharging
 acpi -V | grep Battery | grep Charging
 echo
 fortune
-
-export EDITOR=nano visudo
-export PULSE_LATENCY_MSEC=60
-export PATH=$PATH:/home/michi/.gem/ruby/2.3.0/bin
 
 # Command Line Shortcuts
 alias ls='ls --color=auto'
@@ -57,4 +58,6 @@ alias battery='acpi -V | grep Battery | grep Discharging || acpi -V | grep Batte
 alias stopx='xfce4-session-logout --logout'
 alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
 
-
+# Functions
+find-name(){ find / -name $1 2>/dev/null; }
+compile-latex(){ pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; }
