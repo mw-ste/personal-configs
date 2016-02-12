@@ -34,22 +34,8 @@ export EDITOR=nano visudo
 export PULSE_LATENCY_MSEC=60
 export PATH=$PATH:/home/michi/.gem/ruby/2.2.0/bin
 
-alias ls='ls --color=auto'
-alias ll='ls -lA --color=auto'
-alias cl='clear'
-alias facebook='firefox -private-window www.facebook.com 2> /dev/null &'		# open facebook.com in private browser window
-alias update='yaourt -Syua'
-alias install='yaourt'
-alias remove='yaourt -R'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-alias cleanup='yaourt -Qdt'
-alias battery='acpi -V | grep Battery | grep Discharging || acpi -V | grep Battery | grep Charging'
-alias stopx='xfce4-session-logout --logout'
-alias installed='yaourt -Qe'
-alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
-alias pull='git pull'
-alias push='git push origin master'
-alias add='git add -A'
-alias commit='git commit -am'
-alias aventail='startctui &'
+# include shell aliases
+source $HOME/.shell-aliases
+
+# include shell functions
+source $HOME/.shell-functions
