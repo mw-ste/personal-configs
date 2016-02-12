@@ -20,7 +20,7 @@ promptinit
 
 autoload -U colors && colors
 
-PROMPT="%{$fg[cyan]%}[%n% %m% ]%{$reset_color%}"
+PROMPT="%{$fg[cyan]%}[%n %T %~]%{$reset_color%}"
 
 alias ls='ls --color=auto'
 #PS1='\[\e[0;36m\][\u \A \w]\$ \[\e[m\]'
