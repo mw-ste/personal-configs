@@ -23,10 +23,15 @@ compile-latex()
 
 compile-latex-three()
 { 
+	echo "One"
 	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	echo "Two"
 	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	echo "Three"
 	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	echo "Clean Up"
 	cleanup-latex $1
+	echo "Done"
 }
 
 cleanup-latex()
@@ -38,4 +43,11 @@ cleanup-latex()
 	rm -f ${1/%.tex/.snm};
 	rm -f ${1/%.tex/.toc};
 	rm -f ${1/%.tex/.synctex.gz};
+}
+
+compile-bibtex()
+{ 
+	filename=${1/%.tex/} ;
+	bibtex ${filename} >/dev/null ;  
+	makeindex -s ${filename}.ist -t ${filename}.glg -o ${filename}.gls ${filename}.glo >/dev/null ; 
 }
