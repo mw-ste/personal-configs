@@ -1,0 +1,41 @@
+
+# Functions
+find-name()
+{ 
+	find / -name $1 2>/dev/null; 
+}
+
+initialize-latex-document()
+{
+	cp ~/git-repos/personal-scripts/document.tex . ;
+}
+
+initialize-latex-presentation()
+{
+	cp ~/git-repos/personal-scripts/presentation.tex . ;
+}
+
+compile-latex()
+{ 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ;  
+	cleanup-latex $1
+}
+
+compile-latex-three()
+{ 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
+	cleanup-latex $1
+}
+
+cleanup-latex()
+{
+	rm -f ${1/%.tex/.aux};
+	rm -f ${1/%.tex/.log};
+	rm -f ${1/%.tex/.out};
+	rm -f ${1/%.tex/.nav};
+	rm -f ${1/%.tex/.snm};
+	rm -f ${1/%.tex/.toc};
+	rm -f ${1/%.tex/.synctex.gz};
+}

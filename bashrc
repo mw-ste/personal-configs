@@ -25,76 +25,8 @@ acpi -V | grep Battery | grep Charging
 echo
 fortune
 
-# Command Line Shortcuts
-alias ls='ls --color=auto'
-alias ll='ls -lA'
-alias cl='clear'
-alias grep='grep --color=auto'
+# include shell aliases
+source $HOME/.shell-aliases
 
-# Package Manager Aliases
-alias update='yaourt -Syua'
-alias install='yaourt'
-alias installed='yaourt -Qe'
-alias remove='yaourt -R'
-alias cleanup='yaourt -Qdt'
-
-# Power Aliases
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-
-# Git Aliases
-alias pull='git pull'
-alias push='git push origin master'
-alias add='git add -A'
-alias commit='git commit -am'
-
-# Program Aliases
-alias facebook='firefox -private-window www.facebook.com 2> /dev/null &'
-alias raspi='ssh pi@192.168.178.53'
-alias nas-connect='sudo mount -t cifs //192.168.178.53/michi-nas /mnt -o user=pi,domain=WORKGROUP'
-alias aventail='startctui &'
-alias scilab='~/.scilab_bin/bin/scilab'
-alias battery='acpi -V | grep Battery | grep Discharging || acpi -V | grep Battery | grep Charging'
-alias stopx='xfce4-session-logout --logout'
-alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
-
-# Functions
-find-name()
-{ 
-	find / -name $1 2>/dev/null; 
-}
-
-initialize-latex-document()
-{
-	cp ~/git-repos/personal-scripts/document.tex . ;
-}
-
-initialize-latex-presentation()
-{
-	cp ~/git-repos/personal-scripts/presentation.tex . ;
-}
-
-compile-latex()
-{ 
-	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ;  
-	cleanup-latex $1
-}
-
-compile-latex-three()
-{ 
-	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
-	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
-	pdflatex -synctex=1 -interaction=nonstopmode $1 >/dev/null ; 
-	cleanup-latex $1
-}
-
-cleanup-latex()
-{
-	rm -f ${1/%.tex/.aux};
-	rm -f ${1/%.tex/.log};
-	rm -f ${1/%.tex/.out};
-	rm -f ${1/%.tex/.nav};
-	rm -f ${1/%.tex/.snm};
-	rm -f ${1/%.tex/.toc};
-	rm -f ${1/%.tex/.synctex.gz};
-}
+# include shell functions
+source $HOME/.shell-functions
