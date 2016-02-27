@@ -13,6 +13,12 @@ export PATH=$PATH:/home/michi/.gem/ruby/2.3.0/bin
 # Adapt to Window Size
 shopt -s checkwinsize
 
+# include shell aliases
+source $HOME/.shell-aliases
+
+# include shell functions
+source $HOME/.shell-functions
+
 # Prompt design
 PS1='\[\e[0;36m\][\u \A \w]\$ \[\e[m\]'
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
@@ -24,9 +30,3 @@ acpi -V | grep Battery | grep Discharging
 acpi -V | grep Battery | grep Charging
 echo
 fortune
-
-# include shell aliases
-source $HOME/.shell-aliases
-
-# include shell functions
-source $HOME/.shell-functions

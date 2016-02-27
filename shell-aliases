@@ -1,8 +1,8 @@
 
 # Command Line Shortcuts
+alias cl='clear'
 alias ls='ls --color=auto'
 alias ll='ls -lA  --color=auto'
-alias cl='clear'
 alias grep='grep --color=auto'
 
 # Package Manager Aliases
@@ -25,7 +25,6 @@ alias facebook='firefox -private-window www.facebook.com 2> /dev/null &'
 alias raspi='ssh pi@192.168.178.53'
 alias nas-connect='sudo mount -t cifs //192.168.178.53/michi-nas /mnt -o user=pi,domain=WORKGROUP'
 alias aventail='startctui &'
-alias scilab='~/.scilab_bin/bin/scilab'
 alias battery='acpi -V | grep Battery | grep Discharging || acpi -V | grep Battery | grep Charging'
 alias stopx='xfce4-session-logout --logout'
-alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
+#alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
