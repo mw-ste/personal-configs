@@ -2,7 +2,8 @@
 # Command Line Shortcuts
 alias cl='clear'
 alias ls='ls --color=auto'
-alias ll='ls -lA  --color=auto'
+alias ll='ls -l  --color=auto'
+alias la='ls -lA --color=auto'
 alias grep='grep --color=auto'
 
 # Package Manager Aliases
