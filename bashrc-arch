@@ -9,15 +9,17 @@
 export EDITOR=nano visudo
 export PULSE_LATENCY_MSEC=60
 export PATH=$PATH:/home/michi/.gem/ruby/2.3.0/bin
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
 
 # Adapt to Window Size
 shopt -s checkwinsize
 
 # include shell aliases
-source $HOME/.shell-aliases
+source $HOME/.personal-configs/shell-aliases
 
 # include shell functions
-source $HOME/.shell-functions
+source $HOME/.personal-configs/shell-functions
 
 # Prompt design
 PS1='\[\e[0;36m\][\u \A \w]\$ \[\e[m\]'

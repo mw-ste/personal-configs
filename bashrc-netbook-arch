@@ -1,0 +1,4 @@
+# bash specialization for the netbook
+
+# include bashrc for arch
+source $HOME/.personal-configs/bashrc-arch
