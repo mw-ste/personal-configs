@@ -2,20 +2,14 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# include common bashrc
+source $HOME/.personal-configs/bashrc-common
 
-HISTSIZE=2000
-HISTFILESIZE=2000
-HISTCONTROL=ignoreboth
-shopt -s histappend
-shopt -s checkwinsize
+# include shell aliases
+source $HOME/.personal-configs/shell-aliases-ubuntu
 
-PS1='\[\e[0;36m\][\u \A \w]\$ \[\e[m\]'
-fortune
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# include shell functions
+source $HOME/.personal-configs/shell-functions-ubuntu
 
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
@@ -26,31 +20,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS4='[--- Zeile: $LINENO ---] '
-export EDITOR=nano visudo
-export PULSE_LATENCY_MSEC=60
-export PATH=$PATH:/home/michi/.gem/ruby/2.2.0/bin
-
-alias ls='ls --color=auto'
-alias ll='ls -lA'
-alias cl='clear'
-alias grep='grep --color=auto'
-
-alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
-alias install='sudo apt-get install'
-alias search='apt-cache search'
-alias remove='sudo apt-get remove'
-alias poweroff='sudo poweroff'
-alias reboot='sudo reboot'
-alias cleanup='sudo apt-get autoremove && sudo apt-get autoclean'
-
-alias facebook='firefox -private-window www.facebook.com 2> /dev/null &'
-alias aventail='startctui &'					
-alias stopx='xfce4-session-logout --logout'
-alias pdf-to-img='/home/michi/.scripts/pdf-to-img.sh'
-
-alias pull='git pull'
-alias push='git push origin master'
-alias add='git add -A'
-alias commit='git commit -am'
-
+battery
+echo
+fortune

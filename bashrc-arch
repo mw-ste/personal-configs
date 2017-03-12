@@ -2,33 +2,19 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-# Export variables
-export EDITOR=nano visudo
-export PULSE_LATENCY_MSEC=60
-export PATH=$PATH:/home/michi/.gem/ruby/2.3.0/bin
-export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R '
-
-# Adapt to Window Size
-shopt -s checkwinsize
+# include common bashrc
+source $HOME/.personal-configs/bashrc-common
 
 # include shell aliases
-source $HOME/.personal-configs/shell-aliases
+source $HOME/.personal-configs/shell-aliases-arch
 
 # include shell functions
-source $HOME/.personal-configs/shell-functions
+source $HOME/.personal-configs/shell-functions-arch
 
-# Prompt design
-PS1='\[\e[0;36m\][\u \A \w]\$ \[\e[m\]'
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
-
 
 # Print to new Terminal Window
 archey3
-acpi -V | grep Battery | grep Discharging
-acpi -V | grep Battery | grep Charging
+battery
 echo
 fortune

@@ -1,0 +1,7 @@
+# Package Manager Aliases
+alias update='yaourt -Syua'
+alias install='yaourt'
+alias remove='yaourt -R'
+alias cleanup='yaourt -Qdt'
+
+alias installed='yaourt -Qe'
