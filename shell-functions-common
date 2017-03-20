@@ -12,6 +12,17 @@ find-name()
 	find / -name $1  2>/dev/null; 
 }
 
+# print battery info
+battery()
+{
+	acpi &>/dev/null ;
+	if [ $? -eq 0 ]
+		then
+			acpi -V | grep Battery | grep Discharging ;
+			acpi -V | grep Battery | grep Charging ;
+	fi
+}
+
 # initialize a new latex document by copying a dummy file
 init-latex-doc()
 {
