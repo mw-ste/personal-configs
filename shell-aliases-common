@@ -18,6 +18,6 @@ alias push='git push origin master'
 # Program Aliases
 alias facebook='firefox -private-window www.facebook.com &'
 alias aventail='startctui &'
-alias battery='acpi -V | grep Battery | grep Discharging || acpi -V | grep Battery | grep Charging'
+alias battery='acpi -V | grep Battery | grep Discharging || acpi -V | grep Battery | grep Charging 2>/dev/null'
 alias stopx='xfce4-session-logout --logout'
 alias eclipse='SWT_GTK3=0 eclipse'

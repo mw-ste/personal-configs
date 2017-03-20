@@ -42,12 +42,14 @@ compile-latex-full()
 	compile-latex $1
 	compile-latex $1	
 	echo "Done"
+
+	cp build/${1/%.tex/}.pdf . ;
 }
 
 # compile a bibtex file on the command line
 compile-bibtex()
 { 
 	filename=${1/%.tex/} ;
-	bibtex ${filename} >/dev/null ;  
+	bibtex ${filename} ;  
 	makeindex -s ${filename}.ist -t ${filename}.glg -o ${filename}.gls ${filename}.glo >/dev/null ; 
 }
