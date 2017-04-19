@@ -20,3 +20,9 @@ alias facebook='firefox -private-window www.facebook.com &'
 alias aventail='startctui &'
 alias stopx='xfce4-session-logout --logout'
 alias eclipse='SWT_GTK3=0 eclipse'
+
+# Network Aliases
+alias nm-show='nmcli device wifi'
+alias nm-list='nmcli connection show'
+alias nm-connect='nmcli -p connection up'
+alias nm-add='nmcli device wifi connect'
