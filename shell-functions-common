@@ -64,3 +64,12 @@ compile-bibtex()
 	bibtex ${filename} ;  
 	makeindex -s ${filename}.ist -t ${filename}.glg -o ${filename}.gls ${filename}.glo >/dev/null ; 
 }
+
+# enter monitor mode on given interface
+wifi-mode()
+{
+	sudo ifconfig $1 down
+	sudo iwconfig $1 mode $2
+	sudo ifconfig $1 up
+}
+
