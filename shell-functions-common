@@ -23,6 +23,24 @@ battery()
 	fi
 }
 
+# set display brightness to high
+lumus()
+{
+	max_br=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+	# prepend sudo if file is not writeable
+	bash -c "echo $max_br > /sys/class/backlight/intel_backlight/brightness"
+}
+
+# set display brightness to low
+nox()
+{
+	max_br=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+        low_br=$(echo "$max_br/3" |bc)
+	# prepend sudo if file is not writeable
+	bash -c "echo $low_br > /sys/class/backlight/intel_backlight/brightness"
+
+}
+
 # initialize a new latex document by copying a dummy file
 init-latex-doc()
 {

@@ -10,6 +10,8 @@ alias grep='grep --color=auto'
 # Power Aliases
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
+#alias lumus='sudo bash -c "echo 4000 > /sys/class/backlight/intel_backlight/brightness"'
+#alias nox='sudo bash -c "echo 1000 > /sys/class/backlight/intel_backlight/brightness"'
 
 # Git Aliases
 alias pull='git pull'
