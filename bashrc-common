@@ -14,7 +14,7 @@ shopt -s checkwinsize
 
 # Export variables
 export PS4='[--- Zeile: $LINENO ---] '
-export PATH=$PATH:/home/michi/.gem/ruby/2.4.0/bin:
+export PATH=$PATH:/home/michi/.gem/ruby/2.6.0/bin:
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 export SWT_GTK3=0
