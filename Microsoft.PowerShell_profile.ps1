@@ -11,7 +11,7 @@ function free_port
 {
     $blockingConnection = Get-NetTCPConnection -LocalPort $args[0] 2>$null
     $hashset = New-Object System.Collections.Generic.HashSet[System.Object]
-    $blockingConnection | foreach -process { $null = $hashset.Add($_)}
+    $blockingConnection | ForEach-Object -process { $null = $hashset.Add($_)}
 
     if ($blockingConnection)
     {
@@ -21,7 +21,7 @@ function free_port
             if($processId -ne 0)
             {
                 write-host ("Killing process: " + $processId)
-                kill $processId
+                Stop-Process $processId
             }
         }
 
@@ -66,7 +66,7 @@ function write-colored
     write-host $args[0] -ForegroundColor $args[1] -BackgroundColor $myBackgroundColor -NoNewline
 }
 
-function setup-shell
+function setup_shell
 {
 
     $console = $host.UI.RawUI
@@ -76,5 +76,5 @@ function setup-shell
     Clear-Host
 }
 
-setup-shell
+setup_shell
 Set-Location ~
