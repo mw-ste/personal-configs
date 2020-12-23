@@ -34,6 +34,7 @@ PS1='\[\e[0;36m\][\u \A \w]\$\[\e[m\] $(gitinfo)\n'
 
 # include shell aliases
 source $HOME/.personal-configs/shell-aliases-common
+source $HOME/.personal-configs/shell-aliases-local
 
 # include shell functions
 source $HOME/.personal-configs/shell-functions-common
