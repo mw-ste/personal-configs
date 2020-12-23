@@ -30,7 +30,7 @@ function gitinfo {
     fi
 }
 
-PS1='\[\e[0;36m\][\u \A \w]\$\[\e[m\] $(gitinfo)\n'
+PS1='\[\e[0;36m\][\u@\h \A \w]\$\[\e[m\] $(gitinfo)\n'
 
 # include shell aliases
 source $HOME/.personal-configs/shell-aliases-common
