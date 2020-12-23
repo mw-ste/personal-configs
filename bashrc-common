@@ -21,7 +21,16 @@ export SWT_GTK3=0
 export EDITOR=nano visudo
 export PULSE_LATENCY_MSEC=60
 
-PS1='\[\e[0;36m\][\u \A \w]\$ \[\e[m\]\n'
+
+function gitinfo {
+    g=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [[ ! -z "${g}" ]]
+    then
+        echo -e "\e[0;35m("${g}")\e[m"
+    fi
+}
+
+PS1='\[\e[0;36m\][\u \A \w]\$\[\e[m\] $(gitinfo)\n'
 
 # include shell aliases
 source $HOME/.personal-configs/shell-aliases-common
