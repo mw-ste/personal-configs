@@ -20,6 +20,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+[[ $- == *i* ]] || return
+
 battery
 echo
 fortune

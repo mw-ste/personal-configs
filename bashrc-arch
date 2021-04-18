@@ -13,6 +13,8 @@ source $HOME/.personal-configs/shell-functions-arch
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
+[[ $- == *i* ]] || return
+
 # Print to new Terminal Window
 archey3
 battery
