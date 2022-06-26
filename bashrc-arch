@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# if not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # include common bashrc
 source $HOME/.personal-configs/bashrc-common
 
@@ -11,12 +14,16 @@ source $HOME/.personal-configs/shell-aliases-arch
 # include shell functions
 source $HOME/.personal-configs/shell-functions-arch
 
-[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
+# setup for android sdk
+export ANDROID_HOME=$HOME/.android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-[[ $- == *i* ]] || return
+[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
 # Print to new Terminal Window
 archey3
 battery
 echo
-fortune

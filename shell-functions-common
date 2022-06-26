@@ -8,8 +8,8 @@ mount4user()
 
 # find a file by name on the whole fs
 find-name()
-{ 
-	find / -name $1  2>/dev/null; 
+{
+	find / -name $1  2>/dev/null;
 }
 
 battery()
@@ -29,59 +29,16 @@ lumus()
 nox()
 {
 	max_br=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-        low_br=$(echo "$max_br/3" |bc)
+	low_br=$(echo "$max_br/3" | bc)
 	# prepend sudo if file is not writeable
 	sudo bash -c "echo $low_br > /sys/class/backlight/intel_backlight/brightness"
 
 }
 
-# initialize a new latex document by copying a dummy file
-init-latex-doc()
-{
-	cp ~/.personal-configs/document.tex . ;
-}
-
-# initialize a new latex presentation by copying a dummy file
-init-latex-pres()
-{
-	cp ~/.personal-configs/presentation.tex . ;
-}
-
-# compile a latex file on the command line
-compile-latex()
-{ 
-	mkdir build ;
-	pdflatex -synctex=1 -interaction=nonstopmode -shell-escape -output-directory=build $1 >/dev/null ;
-}
-
-# fully compile a latex file on the command line
-compile-latex-full()
-{ 
-	compile-latex $1
-
-	echo "BibTex"
-	compile-bibtex $1
-
-	compile-latex $1
-	compile-latex $1	
-	echo "Done"
-
-	cp build/${1/%.tex/}.pdf . ;
-}
-
-# compile a bibtex file on the command line
-compile-bibtex()
-{ 
-	filename=${1/%.tex/} ;
-	bibtex ${filename} ;  
-	makeindex -s ${filename}.ist -t ${filename}.glg -o ${filename}.gls ${filename}.glo >/dev/null ; 
-}
-
 # enter monitor mode on given interface
-wifi-mode()
+monitor-mode()
 {
 	sudo ifconfig $1 down
 	sudo iwconfig $1 mode $2
 	sudo ifconfig $1 up
 }
-

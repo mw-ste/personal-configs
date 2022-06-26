@@ -1,17 +1,13 @@
-
 # Command Line Shortcuts
 alias cd..='cd ..'
 alias cl='clear'
 alias ls='ls --color=auto'
-alias ll='ls -l  --color=auto'
-alias la='ls -lA --color=auto'
-alias grep='grep --color=auto'
+alias ll='ls -lv --group-directories-first --color=auto'
+alias la='ls -lAv --group-directories-first --color=auto'
 
 # Power Aliases
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
-#alias lumus='sudo bash -c "echo 4000 > /sys/class/backlight/intel_backlight/brightness"'
-#alias nox='sudo bash -c "echo 1000 > /sys/class/backlight/intel_backlight/brightness"'
 
 # Git Aliases
 alias pull='git pull'
@@ -19,9 +15,7 @@ alias push='git push origin master'
 
 # Program Aliases
 alias facebook='firefox -private-window www.facebook.com &'
-alias aventail='startctui &'
 alias stopx='xfce4-session-logout --logout'
-alias eclipse='SWT_GTK3=0 eclipse'
 
 # Network Aliases
 alias nm-show='nmcli device wifi'

@@ -2,24 +2,36 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# history file settings
 HISTSIZE=2000
 HISTFILESIZE=2000
 HISTCONTROL=ignoreboth
 
+shopt -s cdspell
+shopt -s dirspell
 shopt -s histappend
 shopt -s checkwinsize
 
-# Export variables
-export PS4='[--- Zeile: $LINENO ---] '
-export PATH=$PATH:/home/michi/.local/bin:
-export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+# export variables
+export PS4='[--- Line: $LINENO ---] '
+export PATH=$PATH:$HOME/.local/bin: # add local bin path
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" # "source-highlight" package for colorful less
 export LESS=' -R '
-export SWT_GTK3=0
-export EDITOR=nano visudo
-export PULSE_LATENCY_MSEC=60
+export EDITOR=nano
+export PULSE_LATENCY_MSEC=60 # resolve audio issues
+export GREP_OPTIONS='--color=auto' # colorful grep
+
+# colorful man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 function gitinfo {
