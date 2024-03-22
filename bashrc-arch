@@ -24,6 +24,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
 # Print to new Terminal Window
-archey3
+archey4
 battery
 echo
