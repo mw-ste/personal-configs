@@ -22,7 +22,7 @@ export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" # "source-highlight" pack
 export LESS=' -R '
 export EDITOR=nano
 export PULSE_LATENCY_MSEC=60 # resolve audio issues
-export GREP_OPTIONS='--color=auto' # colorful grep
+#export GREP_OPTIONS='--color=auto' # colorful grep
 
 # colorful man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -42,7 +42,7 @@ function gitinfo {
     fi
 }
 
-PS1='\[\e[0;36m\][\u@\h \A \w]\$\[\e[m\] $(gitinfo)\n'
+PS1='\[\e[0;36m\][\u@\h \A \w]\$\[\e[m\] `gitinfo`\n'
 
 # include shell aliases
 source $HOME/.personal-configs/shell-aliases-common
