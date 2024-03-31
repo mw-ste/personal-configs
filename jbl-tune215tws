@@ -1,0 +1,4 @@
+bluetoothctl power on
+bluetoothctl agent on
+bluetoothctl default-agent
+bluetoothctl connect 14:2C:78:18:90:34
