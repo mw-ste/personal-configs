@@ -1,0 +1,6 @@
+# https://wiki.archlinux.org/title/Bluetooth#Pairing
+
+bluetoothctl power on
+bluetoothctl agent on
+bluetoothctl default-agent
+bluetoothctl connect B8:F8:BE:D5:DC:3E
