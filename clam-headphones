@@ -1,0 +1,7 @@
+# https://wiki.archlinux.org/title/Bluetooth#Pairing
+
+bluetoothctl power on
+bluetoothctl agent on
+bluetoothctl default-agent
+bluetoothctl connect 17:22:32:44:6D:28
+
