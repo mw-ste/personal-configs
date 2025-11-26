@@ -1,5 +1,14 @@
 # https://wiki.archlinux.org/title/Bluetooth#Pairing
 
+# bluetoothctl
+# scan on
+# ... (find address)
+# scan off
+# pair <address>
+# trust <address>
+# connect <address>
+# exit
+
 bluetoothctl power on
 bluetoothctl agent on
 bluetoothctl default-agent
