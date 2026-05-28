@@ -12,5 +12,5 @@
 bluetoothctl power on
 bluetoothctl agent on
 bluetoothctl default-agent
-bluetoothctl connect 17:22:32:44:6D:28
+bluetoothctl connect E8:D0:3C:BA:89:60
 
