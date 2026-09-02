@@ -2,5 +2,5 @@
 alias update='yay -Syu'
 alias install='yay'
 alias remove='yay -R'
-alias cleanup='yay -c'
+alias cleanup='yay -Yc'
 alias installed='yay -Qe'
