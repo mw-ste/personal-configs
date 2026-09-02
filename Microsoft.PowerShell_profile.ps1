@@ -1,11 +1,11 @@
-Set-ItemProperty -Path HKCU:\console -Name WindowAlpha -Value 205
+#Set-ItemProperty -Path HKCU:\console -Name WindowAlpha -Value 205
 
 $myDefaultColor = "Cyan"
 $myBranchColor  = "Magenta"
 $myBackgroundColor = "Black"
 
-$msbuild2019 = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\amd64"
-$env:Path = $msbuild2019 + ";" + $env:Path
+#$msbuild2019 = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\amd64"
+#$env:Path = $msbuild2019 + ";" + $env:Path
 
 function free_port
 {
@@ -20,7 +20,8 @@ function free_port
 
             if($processId -ne 0)
             {
-                write-host ("Killing process: " + $processId)
+                $process = Get-Process -Id $processId
+                write-host ("Killing process: " + $process.ProcessName + " " + $processId)
                 Stop-Process $processId
             }
         }
@@ -63,12 +64,12 @@ function prompt
 
 function write-colored
 {
-    write-host $args[0] -ForegroundColor $args[1] -BackgroundColor $myBackgroundColor -NoNewline
+    #write-host $args[0] -ForegroundColor $args[1] -BackgroundColor $myBackgroundColor -NoNewline
+    write-host $args[0] -ForegroundColor $args[1] -NoNewline
 }
 
 function setup_shell
 {
-
     $console = $host.UI.RawUI
     $console.ForegroundColor = "green"
     $console.BackgroundColor = "black"
@@ -77,4 +78,4 @@ function setup_shell
 }
 
 setup_shell
-Set-Location ~
+#Set-Location ~
